@@ -1,3 +1,4 @@
+#! /usr/bin/env python3
 import unittest
 import test.test_utils as testcase
 
