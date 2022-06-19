@@ -92,5 +92,7 @@ class BasicTestSuite(unittest.TestCase):
         self.assertFalse(solver.contains_duplicate(self.valid_row))
         self.assertTrue(solver.contains_duplicate(self.wrong_row))
 
+        self.assertFalse(solver.contains_duplicate(self.col_0))
+
         self.assertFalse(solver.contains_duplicate(solver.flattened_block(self.valid_block)))
-        self.assertFalse(solver.contains_duplicate(solver.flattened_block(self.valid_block)))
+        self.assertTrue(solver.contains_duplicate(solver.flattened_block(self.wrong_block)))

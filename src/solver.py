@@ -64,4 +64,4 @@ def contains_duplicate(array):
     return true if row/column/block contain duplicates
     """
     filtered_array = list(filter(lambda n: n != 0, array))
-    return len(set(filtered_array)) != len(array)
+    return len(set(filtered_array)) != len(filtered_array)
