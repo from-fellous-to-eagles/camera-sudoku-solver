@@ -1,69 +1,70 @@
 import unittest
 from src import solver
 
+
 class BasicTestSuite(unittest.TestCase):
 
     def setUp(self):
-        self.board =  [
-        [0, 0, 0, 0, 0, 0, 2, 0, 0],
-        [0, 8, 0, 0, 0, 7, 0, 9, 0],
-        [6, 0, 2, 0, 0, 0, 5, 0, 0],
-        [0, 7, 0, 0, 6, 0, 0, 0, 0],
-        [0, 0, 0, 9, 0, 1, 0, 0, 0],
-        [0, 0, 0, 0, 2, 0, 0, 4, 0],
-        [0, 0, 5, 0, 0, 0, 6, 0, 3],
-        [0, 9, 0, 4, 0, 0, 0, 7, 0],
-        [0, 0, 6, 0, 0, 0, 0, 0, 0]
-    ]
+        self.board = [
+            [0, 0, 0, 0, 0, 0, 2, 0, 0],
+            [0, 8, 0, 0, 0, 7, 0, 9, 0],
+            [6, 0, 2, 0, 0, 0, 5, 0, 0],
+            [0, 7, 0, 0, 6, 0, 0, 0, 0],
+            [0, 0, 0, 9, 0, 1, 0, 0, 0],
+            [0, 0, 0, 0, 2, 0, 0, 4, 0],
+            [0, 0, 5, 0, 0, 0, 6, 0, 3],
+            [0, 9, 0, 4, 0, 0, 0, 7, 0],
+            [0, 0, 6, 0, 0, 0, 0, 0, 0]
+        ]
 
         self.upper_left_corner = [
-            [0,0,0],
-            [0,8,0],
-            [6,0,2],
+            [0, 0, 0],
+            [0, 8, 0],
+            [6, 0, 2],
         ]
 
         self.upper_right_corner = [
-            [2,0,0],
-            [0,9,0],
-            [5,0,0],
+            [2, 0, 0],
+            [0, 9, 0],
+            [5, 0, 0],
         ]
 
         self.bottom_left_corner = [
-            [0,0,5],
-            [0,9,0],
-            [0,0,6],
+            [0, 0, 5],
+            [0, 9, 0],
+            [0, 0, 6],
         ]
 
         self.bottom_right_corner = [
-            [6,0,3],
-            [0,7,0],
-            [0,0,0],
+            [6, 0, 3],
+            [0, 7, 0],
+            [0, 0, 0],
         ]
 
         self.upper_middle = [
-            [0,0,0],
-            [0,0,7],
-            [0,0,0],
+            [0, 0, 0],
+            [0, 0, 7],
+            [0, 0, 0],
         ]
 
-        self.col_0 = [0,0,6,0,0,0,0,0,0]
+        self.col_0 = [0, 0, 6, 0, 0, 0, 0, 0, 0]
 
-        self.valid_row = [1,2,3,4,5,6,7,8,9]
-        self.wrong_row = [1,2,2,3,4,5,6,7,8]
-        self.row_too_big = [1,1,2,2,3,3,4,4,5,5,6,7,8,9]
-        self.row_negative = [-1,-2,3,4,5,6,8,9,7]
+        self.valid_row = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        self.wrong_row = [1, 2, 2, 3, 4, 5, 6, 7, 8]
+        self.row_too_big = [1, 1, 2, 2, 3, 3, 4, 4, 5, 5, 6, 7, 8, 9]
+        self.row_negative = [-1, -2, 3, 4, 5, 6, 8, 9, 7]
         self.non_num_row = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
 
         self.valid_block = [
-            [1,2,3],
-            [4,5,6],
-            [7,8,9],
+            [1, 2, 3],
+            [4, 5, 6],
+            [7, 8, 9],
         ]
 
         self.wrong_block = [
-            [1,1,1],
-            [2,2,2],
-            [3,3,3]
+            [1, 1, 1],
+            [2, 2, 2],
+            [3, 3, 3]
         ]
 
     def test_valid_row(self):
@@ -91,5 +92,5 @@ class BasicTestSuite(unittest.TestCase):
         self.assertFalse(solver.contains_duplicate(self.valid_row))
         self.assertTrue(solver.contains_duplicate(self.wrong_row))
 
-        self.assertFalse(solver.contains_duplicate( solver.flattened_block(self.valid_block) ))
-        self.assertFalse(solver.contains_duplicate( solver.flattened_block(self.valid_block) ))
+        self.assertFalse(solver.contains_duplicate(solver.flattened_block(self.valid_block)))
+        self.assertFalse(solver.contains_duplicate(solver.flattened_block(self.valid_block)))

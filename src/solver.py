@@ -2,32 +2,24 @@ BOARD_DIM = 9
 BLOCK_DIM = 3
 VALID_SUM = 45
 
-board =  [
-        [0, 0, 0, 0, 0, 0, 2, 0, 0],
-        [0, 8, 0, 0, 0, 7, 0, 9, 0],
-        [6, 0, 2, 0, 0, 0, 5, 0, 0],
-        [0, 7, 0, 0, 6, 0, 0, 0, 0],
-        [0, 0, 0, 9, 0, 1, 0, 0, 0],
-        [0, 0, 0, 0, 2, 0, 0, 4, 0],
-        [0, 0, 5, 0, 0, 0, 6, 0, 3],
-        [0, 9, 0, 4, 0, 0, 0, 7, 0],
-        [0, 0, 6, 0, 0, 0, 0, 0, 0]
-    ]
 
 def display_board(board):
     """Pretty prints a sudoku grid"""
     for row in board:
         print(row)
 
+
 def flattened_block(block):
     return [n for row in block for n in row]
+
 
 def valid_row(array):
     """
     return true if array contains all numbers
     from 1 to BOARD_DIM without repetition
     """
-    return len(array) == BOARD_DIM and set(array) == {1,2,3,4,5,6,7,8,9}
+    return len(array) == BOARD_DIM and set(array) == {1, 2, 3, 4, 5, 6, 7, 8, 9}
+
 
 def valid_block(block):
     """
@@ -35,6 +27,7 @@ def valid_block(block):
     from 1 to 9 once
     """
     return valid_row(flattened_block(block))
+
 
 def retrieve_block(board, i, j):
     """
@@ -51,17 +44,20 @@ def retrieve_block(board, i, j):
         block.append(block_row)
     return block
 
+
 def retrieve_column(board, j):
     """
     return column at position j
     """
     return [board[i][j] for i in range(BOARD_DIM)]
 
+
 def valid_sum(array):
     """
     return true if sum of column or row is 45
     """
     return sum(array) == VALID_SUM
+
 
 def contains_duplicate(array):
     """
